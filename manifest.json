@@ -1,0 +1,79 @@
+{
+  "update_url": "https://clients2.google.com/service/update2/crx",
+  "manifest_version": 3,
+  "name": "IRNK Veil: Gemini Watermark Cleaner",
+  "short_name": "IRNK Veil",
+  "description": "IRNK Veil cleans Gemini watermarks locally with precise visual processing for cleaner generated images.",
+  "version": "1.0.0",
+  "icons": {
+    "16": "icon/16.png",
+    "32": "icon/32.png",
+    "48": "icon/48.png",
+    "96": "icon/96.png",
+    "128": "icon/128.png"
+  },
+  "permissions": [
+    "declarativeNetRequest",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://gemini.google.com/*",
+    "https://business.gemini.google/*",
+    "https://aistudio.google.com/*",
+    "https://*.googleusercontent.com/*",
+    "https://googleusercontent.com/*",
+    "https://*.ggpht.com/*"
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "block_watermark_images",
+        "enabled": true,
+        "path": "rules/block-watermark-images.json"
+      }
+    ]
+  },
+  "background": {
+    "service_worker": "src/background/index.ts",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "IRNK Veil: Gemini Watermark Cleaner",
+    "default_popup": "src/popup/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://gemini.google.com/*",
+        "https://business.gemini.google/*"
+      ],
+      "js": [
+        "src/runtime/content-main.js"
+      ],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": [
+        "https://gemini.google.com/*",
+        "https://business.gemini.google/*"
+      ],
+      "js": [
+        "src/runtime/isolated-bridge.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/*.js"
+      ],
+      "matches": [
+        "https://gemini.google.com/*",
+        "https://business.gemini.google/*",
+        "https://aistudio.google.com/*"
+      ]
+    }
+  ]
+}
