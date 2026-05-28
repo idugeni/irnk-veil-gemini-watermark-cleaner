@@ -1,5 +1,7 @@
 # IRNK Veil: Gemini Watermark Cleaner
 
+![IRNK Veil repository banner](./assets/github/repository-banner.png)
+
 IRNK Veil is a Chrome Manifest V3 extension by **IRNK Codes** for cleaning Gemini image watermarks locally in the browser.
 
 > [!IMPORTANT]
@@ -13,6 +15,12 @@ IRNK Veil is a Chrome Manifest V3 extension by **IRNK Codes** for cleaning Gemin
 - **Modern popup UI**: minimal neumorphism interface aligned with the IRNK Veil brand.
 - **Production build**: powered by Vite and Chrome Manifest V3.
 
+## Visual Preview
+
+| Local-first | Minimal UI | Store-ready |
+|---|---|---|
+| ![Local-first feature](./assets/github/feature-local.png) | ![Minimal UI feature](./assets/github/feature-minimal-ui.png) | ![Store-ready feature](./assets/github/feature-store-ready.png) |
+
 ## Privacy Model
 
 IRNK Veil is designed around local processing:
@@ -23,6 +31,15 @@ IRNK Veil is designed around local processing:
 - no analytics SDK is included by default.
 
 See [PRIVACY.md](./PRIVACY.md) for details.
+
+## Chrome Web Store Assets
+
+Generated visual assets are available in:
+
+- [assets/store/screenshots](./assets/store/screenshots)
+- [assets/store/promotional](./assets/store/promotional)
+- [assets/store/icons](./assets/store/icons)
+- [assets/ASSET_MANIFEST.md](./assets/ASSET_MANIFEST.md)
 
 ## Development
 
@@ -97,6 +114,7 @@ public/
 └── rules/            # declarativeNetRequest rules
 
 docs/                 # production and store documentation
+assets/               # GitHub and Chrome Web Store visual assets
 ```
 
 ## Core Commands
