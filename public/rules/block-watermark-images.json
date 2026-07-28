@@ -45,6 +45,10 @@
         "lh3.googleusercontent.com",
         "ggpht.com"
       ],
+      "initiatorDomains": [
+        "gemini.google.com",
+        "aistudio.google.com"
+      ],
       "resourceTypes": [
         "image",
         "xmlhttprequest"
@@ -76,6 +80,10 @@
     },
     "condition": {
       "regexFilter": "^https://[^/]*\\.?(googleusercontent|ggpht)\\.com/.*",
+      "initiatorDomains": [
+        "gemini.google.com",
+        "aistudio.google.com"
+      ],
       "resourceTypes": [
         "image",
         "xmlhttprequest"

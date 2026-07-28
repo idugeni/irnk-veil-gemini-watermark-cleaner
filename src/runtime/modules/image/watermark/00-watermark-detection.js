@@ -69,6 +69,12 @@
       marginRight: 64,
       marginBottom: 64
     }),
+    "1k-new-margin": Object.freeze({
+      logoSize: 96,
+      marginRight: 192,
+      marginBottom: 192,
+      alphaVariant: "20260520"
+    }),
     "2k": Object.freeze({
       logoSize: 96,
       marginRight: 64,
@@ -80,6 +86,12 @@
       marginBottom: 64
     }),
     "2k-new-margin": Object.freeze({
+      logoSize: 96,
+      marginRight: 192,
+      marginBottom: 192,
+      alphaVariant: "20260520"
+    }),
+    "4k-new-margin": Object.freeze({
       logoSize: 96,
       marginRight: 192,
       marginBottom: 192,
@@ -144,6 +156,8 @@
       ["21:9", 3168, 1344]
     ]), ...fA("gemini-3.x-image", "2k-new-margin", [
       ["16:9", 2816, 1536]
+    ]), ...fA("gemini-3.x-image", "4k-new-margin", [
+    ]), ...fA("gemini-3.x-image", "1k-new-margin", [
     ]), ...fA("gemini-3.x-image", "4k", [
       ["1:1", 4096, 4096],
       ["1:4", 2048, 8192],
@@ -193,7 +207,7 @@
   }
 
   function Zn(A, g, e) {
-    if (!A || A.logoSize !== 96 || A.marginRight === 192 && A.marginBottom === 192) return null;
+    if (A && A.marginRight === 192 && A.marginBottom === 192) return null;
     let t = {
         logoSize: 96,
         marginRight: 192,
@@ -262,6 +276,11 @@
     for (let p of u) {
       let I = `${p.config.logoSize}:${p.config.marginRight}:${p.config.marginBottom}`;
       if (!P.has(I) && (P.add(I), c.push(p.config), c.length >= r)) break
+    }
+    let newMarginCandidate = Zn(null, a, s);
+    if (newMarginCandidate) {
+      let nmKey = `${newMarginCandidate.logoSize}:${newMarginCandidate.marginRight}:${newMarginCandidate.marginBottom}`;
+      P.has(nmKey) || c.push(newMarginCandidate)
     }
     return c
   }

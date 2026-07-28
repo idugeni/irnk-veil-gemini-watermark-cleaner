@@ -6,10 +6,10 @@ export interface Settings {
 }
 
 export interface LastImageStats {
-  mode: string;
-  maskPercentage: string;
-  maskPixels: number;
-  watermarkSize: number;
+  size: number | null;
+  source: string;
+  alphaGain: number;
+  decisionTier: string | null;
 }
 
 export interface Stats {

@@ -5,8 +5,8 @@ export const Status = ({ isActive, stats, onResetStats }: { isActive: boolean; s
   const lastProcessed = stats.last_processed
     ? new Date(stats.last_processed).toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit', hour12: false })
     : '—';
-  const lastMask = stats.last_image_stats?.maskPercentage
-    ? `${stats.last_image_stats.maskPercentage}%`
+  const lastMask = stats.last_image_stats?.source
+    ? stats.last_image_stats.source
     : '—';
 
   return (
@@ -38,8 +38,8 @@ export const Status = ({ isActive, stats, onResetStats }: { isActive: boolean; s
           <div className="mt-1 text-sm font-black text-[#30343b]">{lastProcessed}</div>
         </Card>
         <Card className="p-3 text-center">
-          <div className="text-[10px] font-semibold text-[#7d7468]">Mask</div>
-          <div className="mt-1 text-sm font-black text-[#30343b]">{lastMask}</div>
+          <div className="text-[10px] font-semibold text-[#7d7468]">Mode</div>
+          <div className="mt-1 text-[10px] font-black text-[#30343b] truncate">{lastMask}</div>
         </Card>
       </div>
 

@@ -283,7 +283,43 @@
       }) : null;
       window.addEventListener("beforeunload", () => {
         f?.dispose?.(), C(), G.dispose(), o.dispose("beforeunload")
-      }), console.log("[Gemini Watermark Remover] Ready")
+      });
+
+      // --- Stats tracking & settings listener ---
+      var __gwrStats = { total_images: 0, last_processed: 0, last_image_stats: null };
+      var __gwrSettingsEnabled = true;
+
+      // Listen for settings pushed from isolated bridge
+      A.addEventListener("message", function(ev) {
+        if (ev.source !== A) return;
+        var d = ev.data || {};
+        if (d.type === "GWR_EXTENSION_SETTINGS_PUSH" && d.settings) {
+          __gwrSettingsEnabled = d.settings.enabled !== false;
+        }
+      });
+
+      // Monkey-patch the processWatermarkBlob to track stats
+      var _origProcess = o.processWatermarkBlob.bind(o);
+      o.processWatermarkBlob = async function(blob, opts) {
+        if (!__gwrSettingsEnabled) return { processedBlob: blob, processedMeta: null };
+        var result = await _origProcess(blob, opts);
+        __gwrStats.total_images++;
+        __gwrStats.last_processed = Date.now();
+        if (result && result.processedMeta) {
+          __gwrStats.last_image_stats = {
+            size: result.processedMeta.size || null,
+            source: result.processedMeta.source || "unknown",
+            alphaGain: result.processedMeta.alphaGain || 1,
+            decisionTier: result.processedMeta.decisionTier || null
+          };
+        }
+        try {
+          A.postMessage({ type: "GWR_EXTENSION_STATS_REPORT", stats: __gwrStats }, "*");
+        } catch(e) { /* ignore */ }
+        return result;
+      };
+
+      console.log("[Gemini Watermark Remover] Ready")
     } catch (A) {
       console.error("[Gemini Watermark Remover] Initialization failed:", A)
     }
