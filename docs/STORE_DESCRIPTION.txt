@@ -1,0 +1,125 @@
+IRNK Veil: Gemini Watermark Cleaner — Clean Gemini image watermarks locally in your browser.
+
+Built by IRNK Codes, IRNK Veil is a privacy-first Chrome extension that detects and cleans watermarks from Gemini-generated images using on-device visual processing. No image data leaves your browser.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔑 KEY FEATURES
+
+• Local-First Processing
+All image cleanup happens directly in your browser using standard browser APIs. Your images are never uploaded to any external server.
+
+• Automatic Watermark Detection
+IRNK Veil automatically identifies watermark areas on supported Gemini pages and applies precise visual reconstruction.
+
+• Reverse Alpha Reconstruction
+The core algorithm analyzes pixel data and reconstructs watermark-affected areas for a cleaner visual result.
+
+• Works on Supported Gemini Pages
+Scoped to gemini.google.com, business.gemini.google, and related image resources. The extension activates only where needed.
+
+• Minimal Permissions
+Uses only the permissions required for the cleanup workflow — no broad access, no background tracking, no analytics.
+
+• Modern Popup Interface
+A clean, minimal UI shows extension status, cleanup statistics, sensitivity settings, and product information at a glance.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🛡️ PRIVACY & SECURITY
+
+IRNK Veil is designed with privacy as a core principle:
+
+• Images are processed entirely in the browser — no uploads to IRNK Codes servers.
+• No analytics SDK is included.
+• No personal data is collected.
+• Settings and statistics are stored locally in Chrome storage.
+• Host permissions are limited to Gemini pages and their associated image resources.
+• Built on Chrome Manifest V3 with scoped, minimal permissions.
+
+For full details, see our Privacy Policy at: https://irnk.codes/veil
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚙️ HOW IT WORKS
+
+1. When you visit a supported Gemini page, IRNK Veil activates automatically.
+2. The extension identifies image resources that contain watermarks.
+3. Using Reverse Alpha Reconstruction, it analyzes pixel data and reconstructs the watermark area.
+4. The cleaned image is displayed seamlessly — no manual steps required.
+5. If cleanup cannot be applied, the original image is preserved (fail-safe behavior).
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 SUPPORTED PAGES
+
+IRNK Veil works on:
+• gemini.google.com
+• business.gemini.google
+• Related Gemini image resources (googleusercontent.com, ggpht.com)
+
+The extension does not run on unrelated websites.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎛️ POPUP FEATURES
+
+• Status indicator — see if IRNK Veil is active on the current tab.
+• Cleanup statistics — track how many images have been processed.
+• Sensitivity settings — adjust the cleanup threshold to your preference.
+• About & technical info — learn about the extension and its architecture.
+• Enable/disable toggle — turn the extension on or off without uninstalling.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🏗️ TECHNICAL DETAILS
+
+• Built with Chrome Manifest V3.
+• Uses declarativeNetRequest for blocking known watermark overlay resources.
+• Content scripts run at document_start for early interception.
+• Service worker handles background state management.
+• React-based popup UI with Tailwind CSS styling.
+• Production build powered by Vite.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📌 PERMISSIONS EXPLAINED
+
+• storage — Saves your settings, enable/disable state, and cleanup statistics locally.
+• declarativeNetRequest — Blocks known watermark overlay image resources where applicable.
+• Host permissions — Limited to Gemini pages and their image resources for the cleanup workflow.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+❓ FAQ
+
+Q: Does IRNK Veil upload my images anywhere?
+A: No. All processing happens locally in your browser. No image data is sent to any server.
+
+Q: Does it work on all websites?
+A: No. IRNK Veil is scoped only to supported Gemini pages and their image resources.
+
+Q: What happens if cleanup fails?
+A: The original image is preserved. IRNK Veil uses a fail-safe approach — if it cannot process an image, it leaves it untouched.
+
+Q: Can I disable the extension temporarily?
+A: Yes. Use the toggle in the popup to enable or disable IRNK Veil without uninstalling it.
+
+Q: Does it collect analytics or personal data?
+A: No. IRNK Veil does not include analytics SDKs and does not collect personal information.
+
+Q: Is this extension affiliated with Google or Gemini?
+A: No. IRNK Veil is an independent tool by IRNK Codes. It is not affiliated with, endorsed by, or sponsored by Google or Gemini.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔗 LINKS
+
+• Homepage: https://irnk.codes/veil
+• Support: https://irnk.codes/support
+• Privacy Policy: https://irnk.codes/veil
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+© 2026 IRNK Codes. All rights reserved.
+IRNK Veil is an independent product and is not affiliated with Google or Gemini.
